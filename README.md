@@ -4,15 +4,23 @@ This is a lightweight Firefox extension that automatically hides the Intercom ch
 
 
 ## 🚀 Features
-- Hides Intercom launcher and iframe popups
-- Works automatically on all pages
-- No configuration needed
+- Hides Intercom launcher and iframe popups automatically
+- Works on all pages where Intercom is detected
+- **Toggle functionality** - Click the extension icon to enable/disable blocking
+- **Visual indicators** - Red (!) badge appears when Intercom is detected and blocked
+- **Browser action popup** - Shows current status and allows easy toggling
+- No configuration needed - works out of the box
 
 ## 📁 File Structure
 ```
 .
-├── src/manifest.json          # Firefox extension manifest
-├── src/hide-intercom.js       # Content script that removes Intercom UI elements
+├── src/
+│   ├── manifest.json          # Firefox extension manifest with browser action
+│   ├── hide-intercom.js       # Content script that removes Intercom UI elements
+│   ├── background.js          # Background script for state management and badges
+│   ├── popup.html             # Browser action popup interface
+│   ├── popup.js               # Popup functionality script
+│   └── logo.png               # Extension icon
 ├── .gitignore                 # Ignore temp, log, and build files
 ├── .gitattributes             # Enforce consistent line endings and binary file handling
 └── README.md                  # Project documentation
@@ -21,13 +29,22 @@ This is a lightweight Firefox extension that automatically hides the Intercom ch
 ## 🧩 How to Install (Temporary Testing)
 1. Open Firefox and go to `about:debugging`
 2. Click **This Firefox** > **Load Temporary Add-on**
-3. Select the `manifest.json` file from the project folder
+3. Select the `manifest.json` file from the `src` folder
 4. Visit a site with Intercom to see the widget hidden automatically
+5. Click the extension icon in the toolbar to toggle blocking on/off
 
 ## 🛠 How It Works
-The content script:
-- Injects CSS to hide common Intercom classes and frames
-- Observes the DOM for dynamically loaded elements (via MutationObserver)
+- **Content Script**: Injects CSS to hide common Intercom classes and frames
+- **DOM Observer**: Watches for dynamically loaded elements (via MutationObserver)
+- **Background Script**: Manages extension state and badge updates
+- **Browser Action**: Shows red (!) badge when Intercom is detected and provides toggle functionality
+- **State Persistence**: Remembers your enable/disable preference across browser sessions
+
+## 🎮 Usage
+- **Auto-blocking**: When enabled, Intercom widgets are automatically hidden on all sites
+- **Toggle**: Click the extension icon to enable/disable blocking
+- **Visual feedback**: Red (!) badge appears when Intercom is detected and blocked
+- **Status popup**: Click the icon to see current status and toggle functionality
 
 ## 📦 Packaging for Distribution (Optional)
 To build a `.xpi` file for permanent install or publishing:

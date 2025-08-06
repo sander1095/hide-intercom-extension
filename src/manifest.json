@@ -3,6 +3,28 @@
   "name": "Hide Intercom Messenger",
   "version": "1.0",
   "description": "Automatically hides Intercom chat widgets on all websites.",
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "logo.png",
+      "32": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    },
+    "default_title": "Toggle Intercom Blocking",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -15,6 +37,9 @@
     }
   ],
   "permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "storage",
+    "tabs",
+    "activeTab"
   ]
 }
