@@ -1,0 +1,30 @@
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore temporary and backup files
+*.swp
+*.swo
+*.bak
+*.tmp
+~*
+
+# Ignore node_modules if someone adds tooling
+node_modules/
+
+# Ignore extension build artifacts (if any)
+dist/
+build/
+*.zip
+
+# Ignore VSCode settings (optional)
+.vscode/
+
+# Ignore packaged Firefox extension (manual or web-ext)
+*.xpi
+web-ext-artifacts/
