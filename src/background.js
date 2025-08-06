@@ -102,6 +102,19 @@ function updateBadge(tabId, intercomDetected = false) {
   }
 }
 
+// Update browser action icon based on system theme
+function updateIcon() {
+  const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const iconFile = isDark ? 'logo-white.png' : 'logo.png';
+  browser.browserAction.setIcon({ path: { 16: iconFile, 32: iconFile, 48: iconFile, 128: iconFile } });
+}
+
+// Initialize icon and listen for theme changes
+updateIcon();
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addListener(updateIcon);
+}
+
 // Listen for messages from content scripts and popup
 browser.runtime.onMessage.addListener((message, sender) => {
   if (message.action === 'intercomDetected') {

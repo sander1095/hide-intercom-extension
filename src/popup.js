@@ -7,7 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const statusDiv = document.getElementById('status');
   const toggleBtn = document.getElementById('toggleBtn');
   const intercomStatusDiv = document.getElementById('intercomStatus');
+  const logoImg = document.getElementById('logo');
   
+  function updateLogo() {
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    logoImg.src = isDark ? 'logo-white.png' : 'logo.png';
+  }
+  updateLogo();
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(updateLogo);
+  }
+
   // Get current state and update UI
   browser.storage.local.get(['extensionEnabled']).then((result) => {
     const enabled = result.extensionEnabled !== undefined ? result.extensionEnabled : true;
