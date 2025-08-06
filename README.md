@@ -20,7 +20,8 @@ This is a lightweight Firefox extension that automatically hides the Intercom ch
 │   ├── background.js          # Background script for state management and badges
 │   ├── popup.html             # Browser action popup interface
 │   ├── popup.js               # Popup functionality script
-│   └── logo.png               # Extension icon
+│   └── logo.png               # Extension icon (For light theme users)
+│   └── logo-white.png         # Extension icon (For dark theme users)
 ├── .gitignore                 # Ignore temp, log, and build files
 ├── .gitattributes             # Enforce consistent line endings and binary file handling
 └── README.md                  # Project documentation
