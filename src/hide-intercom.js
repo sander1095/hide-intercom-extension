@@ -144,10 +144,14 @@
   // Listen for messages from background script and popup
   browser.runtime.onMessage.addListener((message) => {
     if (message.action === 'updateState') {
+      const wasEnabled = extensionEnabled;
       extensionEnabled = message.enabled;
-      
       if (extensionEnabled) {
+        // reset detection so badge can reappear
+        intercomDetected = false;
         disableIntercom();
+        // re-check for Intercom
+        checkForIntercom();
       } else {
         enableIntercom();
       }

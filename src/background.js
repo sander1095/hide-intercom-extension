@@ -80,9 +80,13 @@ function updateBadge(tabId, intercomDetected = false) {
       tabId: tabId
     });
   } else if (!extensionEnabled) {
-    // Show disabled state
+    // Show disabled state with red orb badge
     browser.browserAction.setBadgeText({
-      text: '',
+      text: '●',
+      tabId: tabId
+    });
+    browser.browserAction.setBadgeBackgroundColor({
+      color: '#ff4444',
       tabId: tabId
     });
     browser.browserAction.setTitle({
