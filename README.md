@@ -1,7 +1,22 @@
 # Hide Intercom Messenger – Firefox Extension
 
+[![Firefox Add-ons](https://img.shields.io/amo/v/hide-intercom-messenger?style=for-the-badge&logo=firefox&color=FF6611)](https://addons.mozilla.org/firefox/addon/hide-intercom-messenger/)
+[![Firefox Users](https://img.shields.io/amo/users/hide-intercom-messenger?style=for-the-badge&logo=firefox&color=FF6611)](https://addons.mozilla.org/firefox/addon/hide-intercom-messenger/)
+[![GitHub Release](https://img.shields.io/github/v/release/sander1095/hide-intercom-extension?style=for-the-badge&logo=github)](../../releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/sander1095/hide-intercom-extension/release.yml?style=for-the-badge&logo=github)](../../actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
 This is a lightweight Firefox extension that automatically hides the Intercom chat widget (messenger) on all websites. Made to reduce noise from customer support widgets across the web.
 
+## 📦 Installation
+
+### 🦊 Install from Firefox Add-ons (Recommended)
+
+**[📥 Install from Firefox Add-ons Store](https://addons.mozilla.org/firefox/addon/hide-intercom-messenger/)**
+
+### 🔧 Development Installation
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development setup instructions.
 
 ## 🚀 Features
 - Hides Intercom launcher and iframe popups automatically
@@ -11,55 +26,50 @@ This is a lightweight Firefox extension that automatically hides the Intercom ch
 - **Browser action popup** - Shows current status and allows easy toggling
 - No configuration needed - works out of the box
 
-## 📁 File Structure
+## 📁 Project Structure
 ```
 .
+├── .github/workflows/         # GitHub Actions for automated releases
 ├── src/
 │   ├── manifest.json          # Firefox extension manifest with browser action
 │   ├── hide-intercom.js       # Content script that removes Intercom UI elements
 │   ├── background.js          # Background script for state management and badges
 │   ├── popup.html             # Browser action popup interface
 │   ├── popup.js               # Popup functionality script
-│   └── logo.png               # Extension icon (For light theme users)
-│   └── logo-white.png         # Extension icon (For dark theme users)
-├── .gitignore                 # Ignore temp, log, and build files
-├── .gitattributes             # Enforce consistent line endings and binary file handling
+│   ├── logo.png               # Extension icon (light theme)
+│   └── logo-white.png         # Extension icon (dark theme)
+├── CONTRIBUTING.md            # Development setup and guidelines
+├── RELEASE.md                 # Release process documentation
 └── README.md                  # Project documentation
 ```
-
-## 🧩 How to Install (Temporary Testing)
-1. Open Firefox and go to `about:debugging`
-2. Click **This Firefox** > **Load Temporary Add-on**
-3. Select the `manifest.json` file from the `src` folder
-4. Visit a site with Intercom to see the widget hidden automatically
-5. Click the extension icon in the toolbar to toggle blocking on/off
-
-## 🛠 How It Works
-- **Content Script**: Injects CSS to hide common Intercom classes and frames
-- **DOM Observer**: Watches for dynamically loaded elements (via MutationObserver)
-- **Background Script**: Manages extension state and badge updates
-- **Browser Action**: Shows red (!) badge when Intercom is detected and provides toggle functionality
-- **State Persistence**: Remembers your enable/disable preference across browser sessions
 
 ## 🎮 Usage
 - **Auto-blocking**: When enabled, Intercom widgets are automatically hidden on all sites
 - **Toggle**: Click the extension icon to enable/disable blocking
-- **Visual feedback**: Red (!) badge appears when Intercom is detected and blocked
+- **Visual feedback**: 
+  - Red **!** badge = Intercom detected and blocked
+  - Red **●** badge = Extension disabled
+  - No badge = Extension enabled, no Intercom found
 - **Status popup**: Click the icon to see current status and toggle functionality
+- **Theme support**: Automatically switches icon for light/dark browser themes
 
-## 📦 Packaging for Distribution (Optional)
-To build a `.xpi` file for permanent install or publishing:
-```bash
-zip -r hide-intercom.xpi *
-```
+## 🤝 Contributing
 
-Or use [`web-ext`](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/):
-```bash
-npm install --global web-ext
-web-ext build
-```
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Development setup instructions  
+- Local testing guidelines
+- Code style requirements
+- Pull request process
+
+## 🚀 Releases
+
+This project uses automated releases via GitHub Actions. See [RELEASE.md](RELEASE.md) for:
+- Automated release process
+- Manual release instructions  
+- Troubleshooting guide
 
 ## 📝 License
-MIT License
+
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
