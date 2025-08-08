@@ -1,9 +1,13 @@
 name: Release to Firefox Add-ons
 
+# Commented out automatic triggers because web-ext sign doesn't work well yet
+# on:
+#   push:
+#     branches: [ main ]
+#     tags: [ 'v*' ]
+
 on:
-  push:
-    branches: [ main ]
-    tags: [ 'v*' ]
+  workflow_dispatch:
 
 jobs:
   build-and-release:

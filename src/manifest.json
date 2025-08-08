@@ -1,7 +1,17 @@
 {
+  "author": "Sander ten Brinke",
   "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "s.tenbrinke2@gmail.com",
+      "strict_min_version": "92.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
+  },
   "name": "Hide Intercom Messenger",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Automatically hides Intercom chat widgets on all websites.",
   "icons": {
     "16": "logo-white-16.png",
@@ -15,6 +25,7 @@
     ],
     "persistent": false
   },
+  "homepage_url": "https://github.com/sander1095/hide-intercom-extension",
   "browser_action": {
     "default_icon": {
       "16": "logo-white-16.png",
@@ -38,8 +49,8 @@
   ],
   "permissions": [
     "<all_urls>",
+    "activeTab",
     "storage",
-    "tabs",
-    "activeTab"
+    "tabs"
   ]
 }
